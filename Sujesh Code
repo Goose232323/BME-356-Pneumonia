@@ -1,0 +1,31 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+#from pint import UnitRegistry
+
+# Initialize UnitRegistry and helper for Quantity
+#ureg = UnitRegistry()
+#Q_ = ureg.Quantity
+
+# Define physical constants
+trachea_level = 0
+reactive_pressure_sound_correlation = -1
+
+density_tissue = 1
+density_air = 0.001225
+viscosity_air = 0.000198
+
+
+# Initialize Variables
+n_0 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25] # Generation number 
+r_0 = [0.8,0.6,0.515,0.445,0.385,0.33,0.285,0.245,0.21,0.175,0.165,0.155,0.145,0.14,0.13,0.12,0.115,0.11,0.1,0.089,0.0755,0.0645,0.055,0.0465,0.0395] # Radius length [cm]
+L = [10,4,2.6,1.8,1.4,1.1,1,1,1,1,0.96,0.91,.86,.82,.78,.74,.7,.67,.63,.57,5,.44,.39,.35,.31] # Length of bronchi [cm]
+sa = [50,30,34,20,14,14,21,25,32,31,40,53,58,66,82,95,115,146,175,217,237,271,298,343,437] # Surface area [cm^2]
+E = 15000000 # Young's Modulus [dynes/cm^2]
+D = 10 # Damping Modulus [(dyne-sec)/cm^2]
+branch = [1,2,4,4,4,6,12,16,24,28,40,60,74,92,128,170,228,316,442,682,998,1520,2208,3350,5686] # Number of branches
+dt = 0.000001 # Delta t
+t_max = 0
+bronchi = np.zeroes(25)
+r_n = np.zeroes(25)
+resistance = np.zeroes(25)
